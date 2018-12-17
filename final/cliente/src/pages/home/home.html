@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Biblioteca
+    </ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only (click)="presentProfileModal()">
+          <ion-icon name="options"></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-segment [(ngModel)]="option">
+      <ion-segment-button value="Organization">
+        Organizacion
+      </ion-segment-button>
+      <ion-segment-button value="Branch">
+        Sucursal
+      </ion-segment-button>
+      <ion-segment-button value="Editorial">
+        Editoriales
+      </ion-segment-button>
+    </ion-segment>
+    
+    <div *ngIf="option == Branch">
+
+    </div>
+    <div [ngSwitch]="option">
+
+        <ion-list *ngSwitchCase="'Organization'">
+            <ion-list style="padding-top:20px;">
+              <!-- <ion-item style="text-align:center;" [navPush]="addpage" [navParams]="{ value : 'organization' }" ><button ion-button full  >Add Organization</button></ion-item> -->
+              <ion-item style="text-align:center;" (click)="refresh()"  ><button ion-button full >List Organizaciones</button></ion-item>
+            <ion-item *ngFor="let b of organizations"[navPush]="textPage" [navParams]="{ value : b,type:'o' }">
+                {{b.name}}
+              </ion-item>
+            </ion-list>
+        </ion-list>
+        <ion-list *ngSwitchCase="'Branch'">
+          <ion-list style="padding-top:20px;">
+              <!-- <ion-item style="text-align:center;" [navPush]="addpage" [navParams]="{ value : 'branch' }" ><button ion-button full  >Add Branch</button></ion-item> -->
+              <ion-item style="text-align:center;" (click)="refresh()"  ><button ion-button full >List Sucursales</button></ion-item>
+              <ion-item *ngFor="let b of branchs"[navPush]="textPage" [navParams]="{ value : b ,type:'s'}">
+                {{b.name}}
+                <p *ngFor="let c of copies" >
+                    <span *ngIf="c.branch_id == b.id">* {{c.details}}</span>
+                </p>
+              </ion-item>
+            </ion-list>
+        </ion-list>
+        <ion-list *ngSwitchCase="'Editorial'">
+            <ion-list style="padding-top:20px;">
+                <!-- <ion-item style="text-align:center;" [navPush]="addpage" [navParams]="{ value : 'editorial' }" ><button ion-button full  >Add Editorial</button></ion-item> -->
+                <ion-item style="text-align:center;" (click)="refresh()"  ><button ion-button full >List Editorial</button></ion-item>
+            <ion-item *ngFor="let b of editoriales"[navPush]="textPage" [navParams]="{ value : b,type:'e' }">
+                {{b.name}}
+              </ion-item>
+            </ion-list>
+        </ion-list>
+      </div>
+</ion-content>
+
+
+<!-- 
+  La forma tradicional para evaluar psicologicamente a un alumno de secundaria en colegios estatales actualmente son pasados desapercibidos. Hoy en dia a nivel mundial el diseño y el uso de herramientas graficas en dispositivos moviles permite despertar el interes de las personas. En el Perú la gran mayoria de colegios estatales no disponen del area de psicologia. En este articulo se presenta una propuesta para evaluar jovenes estudiantes del nivel secundario mediante un aplicativo usando interfaces de usuario.
+ -->

@@ -1,0 +1,79 @@
+<!--
+  Generated template for the AddPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title *ngIf="value === 'branch'">Agregar sucursal</ion-title>
+    <ion-title *ngIf="value === 'editorial'">Agregar editorial</ion-title>
+    <ion-title *ngIf="value === 'organization'">Agregar Organizacion</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+<div *ngIf="value === 'branch'">
+    <ion-list >
+        <ion-item>
+            <ion-label floating >Name</ion-label>
+            <ion-input type="" [(ngModel)]="branch.name"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating >Address</ion-label>
+            <ion-input type="" [(ngModel)]="branch.address"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating >Latitude</ion-label>
+            <ion-input type="" [(ngModel)]="branch.latitude"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating >longitude</ion-label>
+            <ion-input type="" [(ngModel)]="branch.longitude"></ion-input>
+          </ion-item>
+          <button  (click)="clickMe('branch')" ion-button>Agregar</button>
+    </ion-list>
+</div>
+
+
+
+<div *ngIf="value === 'editorial'">
+    <ion-list >
+        <ion-item>
+            <ion-label floating >Name</ion-label>
+            <ion-input type="" [(ngModel)]="editorial.name"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating >Address</ion-label>
+            <ion-input type="" [(ngModel)]="editorial.address"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating >Country</ion-label>
+            <ion-input type="" [(ngModel)]="editorial.country"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating >Website</ion-label>
+            <ion-input type="" [(ngModel)]="editorial.webiste"></ion-input>
+          </ion-item>
+          <button  (click)="clickMe('editorial')" ion-button>Agregar</button>
+    </ion-list>
+</div>
+
+
+
+<div *ngIf="value === 'organization'">
+    <ion-list >
+        <ion-item>
+            <ion-label floating >Name</ion-label>
+            <ion-input type="" [(ngModel)]="organization.name"></ion-input>
+          </ion-item>
+           
+          <button  (click)="clickMe('organization')" ion-button>Agregar</button>
+    </ion-list>
+</div>
+
+</ion-content>

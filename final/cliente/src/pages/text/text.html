@@ -1,0 +1,137 @@
+<!--
+  Generated template for the TextPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{branch.name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-card>
+
+        <ion-card-header>
+          {{branch.name}}
+        </ion-card-header>
+      
+        <ion-card-content>
+          {{branch.address}}
+        </ion-card-content>
+        
+        <ion-fab top right>
+            <button (click)="deleteItem()" ion-fab mini icon-center color="danger">
+                <ion-icon name="trash"></ion-icon>
+              </button>
+        </ion-fab>
+
+      
+      </ion-card>
+      <!-- <ion-icon name="ios-trash" (click)="deleteB()"></ion-icon>
+      <ion-icon name="ios-brush" (click)="editB()"></ion-icon>
+
+      <div *ngIf="edit == 0">
+
+      </div> -->
+
+
+<div *ngIf="type === 's'">
+    <h3>Editar</h3>
+    <ion-list >
+        <ion-item>
+            <ion-label floating >Id</ion-label>
+            <ion-input type="" [(ngModel)]="branch.id" disabled></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating >Name</ion-label>
+            <ion-input type="" [(ngModel)]="branch.name"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating >Address</ion-label>
+            <ion-input type="" [(ngModel)]="branch.address"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating >Latitude</ion-label>
+            <ion-input type="" [(ngModel)]="branch.latitude"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating >longitude</ion-label>
+            <ion-input type="" [(ngModel)]="branch.longitude"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label>Status</ion-label>
+              <ion-select [(ngModel)]="branch.status">
+                <ion-option value="1" >1</ion-option>
+                <ion-option value="0" >0</ion-option>
+              </ion-select>
+            </ion-item>
+          <button  (click)="clickMe('branch')" ion-button>Agregar</button>
+    </ion-list>
+</div>
+
+
+
+<div *ngIf="type === 'e'">
+    <h3>Editar</h3>
+    <ion-list >
+        <ion-item>
+            <ion-label floating >Id</ion-label>
+            <ion-input type="" [(ngModel)]="branch.id" disabled></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating >Name</ion-label>
+            <ion-input type="" [(ngModel)]="branch.name"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating >Address</ion-label>
+            <ion-input type="" [(ngModel)]="branch.address"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating >Country</ion-label>
+            <ion-input type="" [(ngModel)]="branch.country"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating >Website</ion-label>
+            <ion-input type="" [(ngModel)]="branch.website"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Status</ion-label>
+            <ion-select [(ngModel)]="branch.status">
+              <ion-option value="1" >1</ion-option>
+              <ion-option value="0" >0</ion-option>
+            </ion-select>
+          </ion-item>
+          <button  (click)="clickMe('editorial')" ion-button>Agregar</button>
+    </ion-list>
+</div>
+
+
+
+<div *ngIf="type === 'o'">
+    <h3>Editar</h3>
+    <ion-list >
+        <ion-item>
+            <ion-label floating >Id</ion-label>
+            <ion-input type="" [(ngModel)]="branch.id" disabled></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating >Name</ion-label>
+            <ion-input type="" [(ngModel)]="branch.name"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label>Status</ion-label>
+              <ion-select [(ngModel)]="branch.status">
+                <ion-option value="1" >1</ion-option>
+                <ion-option value="0" >0</ion-option>
+              </ion-select>
+            </ion-item>
+           
+          <button  (click)="clickMe('organization')" ion-button>Agregar</button>
+    </ion-list>
+</div>
+</ion-content>
